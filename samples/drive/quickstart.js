@@ -24,14 +24,14 @@ const {google} = require('googleapis');
 async function runSample() {
   // Obtain user credentials to use for the request
   const auth = await authenticate({
-    keyfilePath: path.join(__dirname, '../oauth2.keys.json'),
+    keyfilePath: path.join(__dirname, '../credentials.installed.json'),  //'../oauth2.keys.json'
     scopes: 'https://www.googleapis.com/auth/drive.metadata.readonly',
   });
   google.options({auth});
 
   const service = google.drive('v3');
   const res = await service.files.list({
-    pageSize: 10,
+    pageSize: 100,
     fields: 'nextPageToken, files(id, name)',
   });
   const files = res.data.files;

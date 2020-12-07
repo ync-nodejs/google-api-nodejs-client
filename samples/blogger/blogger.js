@@ -18,13 +18,13 @@ const blogger = google.blogger('v3');
 const nconf = require('nconf');
 const path = require('path');
 
-// Ex: node blogger.js --api_key "YOUR API KEY"
-nconf.argv().env().file(path.join(__dirname, 'config.json'));
+// Ex: node blogger.js --api_key "YOURAIzaSyCLg-BIbTxN6dRc-WAkjlQLS5KJVp3-WWo API KEY"
+nconf.argv().env().file(path.join(__dirname, '../config.json'));
 
 blogger.blogs.get(
   {
     key: nconf.get('api_key'),
-    blogId: '3213900',
+    blogId: '7765981043620310496',
   },
   (err, res) => {
     if (err) {
